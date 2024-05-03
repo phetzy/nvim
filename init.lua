@@ -868,6 +868,24 @@ require('lazy').setup({
     end,
   },
 
+  -- Fugitive (Git wrapper)
+  {
+    'tpope/vim-fugitive',
+  },
+
+  -- Tailwind Sorter
+  {
+    'laytan/tailwind-sorter.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
+    build = 'cd formatter && npm ci && npm run build',
+    config = true,
+  },
+
+  vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' }),
+  vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' }),
+  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' }),
+  vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = 'none' }),
+
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
