@@ -57,8 +57,16 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { trail = '·', nbsp = '␣' }
-
+vim.opt.listchars = {
+  trail = '·',
+  nbsp = '␣',
+  lead = '·',
+  tab = '··',
+}
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
@@ -97,7 +105,6 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Exit Insert mode while trying to navigate
 vim.keymap.set('i', 'hh', '<Esc>')
-vim.keymap.set('i', 'll', '<Esc>')
 vim.keymap.set('i', 'kk', '<Esc>')
 vim.keymap.set('i', 'jj', '<Esc>')
 
