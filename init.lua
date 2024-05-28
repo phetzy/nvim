@@ -888,6 +888,26 @@ require('lazy').setup({
     config = true,
   },
 
+  -- Highlight Colors
+  {
+    'brenoprata10/nvim-highlight-colors',
+    config = function()
+      require('nvim-highlight-colors').setup {
+        render = 'virtual',
+        virtual_symbol_position = 'inline',
+        virtual_symbol_prefix = '',
+        virtual_symbol_suffix = ' ',
+        virtual_symbol = '■',
+        enable_hex = true,
+        enable_rgb = true,
+        enable_hsl = true,
+        enable_var_usage = true,
+        enable_name_colors = true,
+        enable_tailwind = true,
+      }
+    end,
+  },
+
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' }),
   vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' }),
   vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' }),
