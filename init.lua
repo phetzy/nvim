@@ -853,6 +853,14 @@ require('lazy').setup({
           number = false,
           cursorline = true,
         },
+        filters = {
+          dotfiles = false,
+        },
+        git = {
+          enable = true,
+          ignore = false,
+          timeout = 500,
+        },
       }
 
       vim.opt.termguicolors = true
