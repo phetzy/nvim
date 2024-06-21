@@ -103,11 +103,6 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Exit Insert mode while trying to navigate
-vim.keymap.set('i', 'hh', '<Esc>')
-vim.keymap.set('i', 'kk', '<Esc>')
-vim.keymap.set('i', 'jj', '<Esc>')
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -672,25 +667,29 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'olimorris/onedarkpro.nvim',
+    'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      require('tokyonight').setup {}
+      require('catppuccin').setup {
+        flavor = 'macchiato',
+        transparent_background = true,
+        term_colors = true,
+      }
 
+      vim.cmd 'colorscheme catppuccin'
+      vim.api.nvim_set_hl(0, 'Comment', { italic = true })
+      vim.api.nvim_set_hl(0, 'Directory', { bold = true })
+      vim.api.nvim_set_hl(0, 'ErrorMsg', { italic = true, bold = true })
+      vim.api.nvim_set_hl(0, 'Keyword', { italic = true, bold = true })
+      vim.api.nvim_set_hl(0, 'Function', { italic = true })
+      vim.api.nvim_set_hl(0, 'Method', { italic = true, bold = true })
+      vim.api.nvim_set_hl(0, 'Conditional', { italic = true })
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
     end,
-    vim.cmd 'colorscheme onedark_vivid',
-    vim.api.nvim_set_hl(0, 'Comment', { italic = true }),
-    vim.api.nvim_set_hl(0, 'Directory', { bold = true }),
-    vim.api.nvim_set_hl(0, 'ErrorMsg', { italic = true, bold = true }),
-    vim.api.nvim_set_hl(0, 'Keyword', { italic = true, bold = true }),
-    vim.api.nvim_set_hl(0, 'Function', { italic = true }),
-    vim.api.nvim_set_hl(0, 'Method', { italic = true, bold = true }),
-    vim.api.nvim_set_hl(0, 'Conditional', { italic = true }),
   },
 
   -- Highlight todo, notes, etc in comments
