@@ -895,6 +895,13 @@ require('lazy').setup({
     config = true,
   },
 
+  -- Pretty Hover
+  {
+	  "Fildo7525/pretty_hover",
+	  event = "LspAttach",
+	  opts = {}
+  },
+
   -- Highlight Colors
   {
     'brenoprata10/nvim-highlight-colors',
