@@ -464,6 +464,7 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
+        svelte = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -887,19 +888,11 @@ require('lazy').setup({
     'tpope/vim-fugitive',
   },
 
-  -- Tailwind Sorter
-  {
-    'laytan/tailwind-sorter.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-    build = 'cd formatter && npm ci && npm run build',
-    config = true,
-  },
-
   -- Pretty Hover
   {
-	  "Fildo7525/pretty_hover",
-	  event = "LspAttach",
-	  opts = {}
+    'Fildo7525/pretty_hover',
+    event = 'LspAttach',
+    opts = {},
   },
 
   -- Highlight Colors
@@ -920,6 +913,25 @@ require('lazy').setup({
         enable_tailwind = true,
       }
     end,
+  },
+
+  -- Vim Tmux Navigator
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+    },
+    keys = {
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
   },
 
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' }),
