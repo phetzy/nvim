@@ -692,7 +692,7 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, 'Function', { italic = true })
       vim.api.nvim_set_hl(0, 'Method', { italic = true, bold = true })
       vim.api.nvim_set_hl(0, 'Conditional', { italic = true })
-      vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#f0c6c6' })
+      -- vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#f0c6c6' })
 
       local _border = 'single'
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
