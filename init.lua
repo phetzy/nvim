@@ -158,7 +158,7 @@ require('lazy').setup({
   --
   --  This is equivalent to:
   --    require('Comment').setup({})
-
+  --
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
@@ -692,7 +692,7 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, 'Function', { italic = true })
       vim.api.nvim_set_hl(0, 'Method', { italic = true, bold = true })
       vim.api.nvim_set_hl(0, 'Conditional', { italic = true })
-      -- vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#f0c6c6' })
+      vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#8bd5ca' })
 
       local _border = 'single'
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -930,24 +930,8 @@ require('lazy').setup({
     end,
   },
 
-  -- Vim Tmux Navigator
-  {
-    'christoomey/vim-tmux-navigator',
-    cmd = {
-      'TmuxNavigateLeft',
-      'TmuxNavigateDown',
-      'TmuxNavigateUp',
-      'TmuxNavigateRight',
-      'TmuxNavigatePrevious',
-    },
-    keys = {
-      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
-      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
-      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
-      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
-      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
-    },
-  },
+  -- Copilot
+  { 'github/copilot.vim' },
 
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' }),
   vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' }),
@@ -963,7 +947,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  --{ import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
